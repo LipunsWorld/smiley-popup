@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley Face Popup</title>
+</head>
+<body>
+
+<!-- Link to trigger the popup -->
+<a href="javascript:void(0);" onclick="showSmileyPopup()">Click me!</a>
+
+<script>
+    function showSmileyPopup() {
+        // Create a new div element for the popup
+        var popup = document.createElement("div");
+        popup.innerHTML = "😊"; // Smiley face emoji
+        popup.style.fontSize = "48px"; // Adjust font size
+        popup.style.textAlign = "center";
+        popup.style.padding = "20px";
+        popup.style.border = "2px solid #ccc";
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.backgroundColor = "#fff";
+        popup.style.zIndex = "9999";
+
+        // Append the popup to the body
+        document.body.appendChild(popup);
+
+        // Remove the popup after a delay (e.g., 3 seconds)
+        setTimeout(function() {
+            document.body.removeChild(popup);
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
