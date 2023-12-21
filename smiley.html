@@ -3,38 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smiley Face Popup</title>
+    <title>Welcome to My World</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        #loginLink {
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #loginForm {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #loggedInContent {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .smiley {
+            font-size: 2em;
+        }
+
+        #flower {
+            font-size: 3em;
+            color: #ff69b4;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
+    <h1>Welcome to My World</h1>
+    <div id="loginLink" onclick="showLoginForm()">Click here to login</div>
 
-<!-- Link to trigger the popup -->
-<a href="javascript:void(0);" onclick="showSmileyPopup()">Click me!</a>
+    <div id="loginForm">
+        <label for="userId">ID:</label>
+        <input type="text" id="userId" placeholder="Enter ID">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password">
+        <br>
+        <button onclick="login()">Login</button>
+    </div>
 
-<script>
-    function showSmileyPopup() {
-        // Create a new div element for the popup
-        var popup = document.createElement("div");
-        popup.innerHTML = "😊"; // Smiley face emoji
-        popup.style.fontSize = "48px"; // Adjust font size
-        popup.style.textAlign = "center";
-        popup.style.padding = "20px";
-        popup.style.border = "2px solid #ccc";
-        popup.style.position = "fixed";
-        popup.style.top = "50%";
-        popup.style.left = "50%";
-        popup.style.transform = "translate(-50%, -50%)";
-        popup.style.backgroundColor = "#fff";
-        popup.style.zIndex = "9999";
+    <div id="loggedInContent">
+        <div class="smiley">😊😊😊</div>
+        <div id="flower">🌸</div>
+        <div id="message">Hey Kese ho mere dost, please collect your gift from Mittal</div>
+    </div>
 
-        // Append the popup to the body
-        document.body.appendChild(popup);
+    <script>
+        function showLoginForm() {
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
 
-        // Remove the popup after a delay (e.g., 3 seconds)
-        setTimeout(function() {
-            document.body.removeChild(popup);
-        }, 3000);
-    }
-</script>
+        function login() {
+            var userId = document.getElementById('userId').value;
+            var password = document.getElementById('password').value;
 
+            if (userId === '123' && password === '456') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('loggedInContent').style.display = 'block';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+    </script>
 </body>
 </html>
